@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bespoke | Viara Studios — A Project by Garvit Arora</title>
+<meta name="description" content="Commission a one-of-a-kind creation from Viara Studios. Bespoke jewellery services and the story behind this project by Garvit Arora.">
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║                                                              ║
+  ║   DIGITAL SIGNATURE — COPYRIGHT NOTICE                       ║
+  ║   Designed & Developed by: Garvit Arora                      ║
+  ║   All rights reserved © 2026                                 ║
+  ║   Unauthorized reproduction or distribution is prohibited.   ║
+  ║                                                              ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap');
+
+  :root {
+    --gold: #C5A059;
+    --gold-hover: #b08d4a;
+    --dark: #0A0A0A;
+    --dark-alt: #111111;
+    --dark-card: #1A1A1A;
+    --light: #FAF9F6;
+    --light-alt: #F0EFEA;
+    --light-warm: #F5F0E8;
+    --text-main: #2A2A2A;
+    --text-muted: #7A7A7A;
+    --text-subtle: #ABABAB;
+    --border-light: rgba(0,0,0,0.06);
+    --border-dark: rgba(255,255,255,0.08);
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Montserrat', sans-serif;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-slow: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-medium: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-fast: all 0.3s ease;
+    --container: 1400px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: var(--font-sans); color: var(--text-main); background: var(--light);
+    overflow-x: hidden; line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--dark); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); }
+  ::selection { background: var(--gold); color: var(--light); }
+  img { display: block; max-width: 100%; }
+
+  h1, h2, h3, h4, h5 { font-family: var(--font-serif); font-weight: 300; line-height: 1.15; }
+
+  .overline {
+    font-family: var(--font-sans); font-size: 0.65rem; font-weight: 400;
+    text-transform: uppercase; letter-spacing: 0.35em; color: var(--gold);
+    display: inline-block; margin-bottom: 1.2rem;
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .d1 { transition-delay: 0.1s !important; }
+  .d2 { transition-delay: 0.2s !important; }
+  .d3 { transition-delay: 0.3s !important; }
+  .d4 { transition-delay: 0.4s !important; }
+  .d5 { transition-delay: 0.5s !important; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.8rem;
+    padding: 1.1rem 2.8rem; font-family: var(--font-sans); font-size: 0.68rem;
+    font-weight: 400; text-transform: uppercase; letter-spacing: 0.22em;
+    text-decoration: none; transition: var(--transition-fast); cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .btn-outline { border-color: var(--gold); color: var(--gold); background: transparent; }
+  .btn-outline:hover { background: var(--gold); color: var(--light); }
+  .btn-solid { background: var(--gold); color: var(--light); border-color: var(--gold); }
+  .btn-solid:hover { background: var(--gold-hover); border-color: var(--gold-hover); }
+
+  /* Nav */
+  nav {
+    position: fixed; top: 0; width: 100%; height: 80px; padding: 0 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 1000; transition: var(--transition-medium); background: transparent;
+  }
+  nav.scrolled {
+    height: 64px; background: rgba(10,10,10,0.96);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-dark);
+  }
+  .logo {
+    font-family: var(--font-serif); font-size: 1.7rem; font-weight: 400;
+    letter-spacing: 0.08em; color: var(--light); text-decoration: none; text-transform: uppercase;
+  }
+  .logo span { color: var(--gold); font-style: italic; text-transform: lowercase; font-size: 1.4rem; }
+  .nav-links { display: flex; gap: 3.5rem; list-style: none; align-items: center; }
+  .nav-links a {
+    text-decoration: none; color: rgba(250,249,246,0.75); font-size: 0.68rem;
+    font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase;
+    transition: var(--transition-fast); position: relative; padding-bottom: 4px;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 0; height: 1px; background: var(--gold); transition: width 0.3s ease;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-links a.active { color: var(--gold); }
+  .nav-links a.active::after { width: 100%; }
+  .nav-cta {
+    color: var(--gold) !important; border: 1px solid rgba(197,160,89,0.4);
+    padding: 0.6rem 1.5rem !important; font-size: 0.62rem !important;
+  }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--light) !important; border-color: var(--gold) !important; }
+
+  .hamburger { display: none; flex-direction: column; gap: 7px; cursor: pointer; z-index: 1001; padding: 5px; }
+  .hamburger div { width: 28px; height: 1px; background: var(--light); transition: var(--transition-fast); transform-origin: center; }
+  .hamburger.open div:first-child { transform: rotate(45deg) translate(5px, 6px); }
+  .hamburger.open div:last-child { transform: rotate(-45deg) translate(5px, -6px); }
+
+  .mobile-menu {
+    position: fixed; inset: 0; background: var(--dark); z-index: 999;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 2.5rem; opacity: 0; pointer-events: none; transition: var(--transition-slow);
+  }
+  .mobile-menu.open { opacity: 1; pointer-events: auto; }
+  .mobile-menu a {
+    font-family: var(--font-serif); font-size: 2.8rem; color: var(--light);
+    text-decoration: none; transition: var(--transition-fast);
+    opacity: 0; transform: translateY(20px);
+  }
+  .mobile-menu.open a { opacity: 1; transform: translateY(0); }
+  .mobile-menu.open a:nth-child(1) { transition-delay: 0.1s; }
+  .mobile-menu.open a:nth-child(2) { transition-delay: 0.2s; }
+  .mobile-menu.open a:nth-child(3) { transition-delay: 0.3s; }
+  .mobile-menu.open a:nth-child(4) { transition-delay: 0.4s; }
+  .mobile-menu.open a:nth-child(5) { transition-delay: 0.5s; }
+  .mobile-menu.open a:nth-child(6) { transition-delay: 0.6s; }
+  .mobile-menu a:hover { color: var(--gold); font-style: italic; }
+
+  /* Page Hero */
+  .page-hero {
+    height: 65vh; min-height: 500px; background: var(--dark);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .page-hero::before {
+    content: ''; position: absolute; width: 100%; height: 100%;
+    background:
+      radial-gradient(ellipse 50% 50% at 50% 60%, rgba(197,160,89,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 30% 40% at 20% 80%, rgba(197,160,89,0.03) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .page-hero-content { position: relative; z-index: 2; max-width: 700px; padding: 0 2rem; }
+  .page-hero h1 { font-size: clamp(3rem, 6vw, 5rem); color: var(--light); margin-bottom: 1rem; }
+  .page-hero h1 em { color: var(--gold); font-style: italic; }
+  .page-hero p { color: rgba(250,249,246,0.5); font-size: 1rem; font-weight: 200; max-width: 550px; margin: 0 auto; letter-spacing: 0.04em; line-height: 1.8; }
+  .breadcrumb { margin-bottom: 2rem; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em; }
+  .breadcrumb a { color: rgba(250,249,246,0.4); text-decoration: none; transition: var(--transition-fast); }
+  .breadcrumb a:hover { color: var(--gold); }
+  .breadcrumb span { color: var(--gold); margin: 0 0.5rem; }
+
+  /* Bespoke Intro */
+  .bespoke-intro {
+    padding: 10rem 4rem;
+    max-width: var(--container);
+    margin: 0 auto;
+  }
+
+  .bespoke-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+    align-items: center;
+  }
+
+  .bespoke-visual {
+    position: relative;
+    border-radius: 200px 200px 12px 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    background: var(--light-alt);
+    aspect-ratio: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bespoke-visual img {
+    width: 85%; height: 85%; object-fit: cover;
+    border-radius: 160px 160px 8px 8px;
+    transition: var(--transition-slow);
+  }
+
+  .bespoke-visual:hover img { transform: scale(1.03); }
+
+  .bespoke-visual::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 30%;
+    background: linear-gradient(to top, rgba(240,239,234,0.6), transparent);
+    pointer-events: none; border-radius: 0 0 12px 12px;
+  }
+
+  .bespoke-text h2 {
+    font-size: clamp(2.2rem, 3.5vw, 3rem);
+    margin-bottom: 2rem;
+    color: var(--text-main);
+  }
+
+  .bespoke-text p {
+    color: var(--text-muted);
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Process Section */
+  .bespoke-process {
+    padding: 8rem 4rem;
+    background: var(--dark);
+    color: var(--light);
+  }
+
+  .bespoke-process-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+  }
+
+  .section-header { text-align: center; max-width: 650px; margin: 0 auto 5rem; }
+  .section-header h2 { font-size: clamp(2.5rem, 5vw, 3.8rem); margin-bottom: 1.5rem; }
+  .section-header p { font-weight: 300; font-size: 1rem; line-height: 1.8; }
+
+  .bp-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    margin-top: 4rem;
+  }
+
+  .bp-step {
+    text-align: center;
+    padding: 3rem 2rem;
+    border: 1px solid var(--border-dark);
+    border-radius: 8px;
+    transition: var(--transition-fast);
+    position: relative;
+  }
+
+  .bp-step:hover {
+    border-color: rgba(197,160,89,0.3);
+    transform: translateY(-5px);
+  }
+
+  .bp-step-num {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    color: var(--gold);
+    opacity: 0.3;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    line-height: 1;
+  }
+
+  .bp-step h4 {
+    font-size: 1.4rem;
+    color: var(--light);
+    margin-bottom: 1rem;
+  }
+
+  .bp-step p {
+    font-size: 0.88rem;
+    color: rgba(250,249,246,0.5);
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  /* Gallery Showcase */
+  .bespoke-gallery {
+    padding: 8rem 4rem;
+    background: var(--light-alt);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: var(--container);
+    margin: 0 auto;
+  }
+
+  .gallery-item {
+    aspect-ratio: 1;
+    background: var(--light);
+    border: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .gallery-item img {
+    width: 85%; height: 85%; object-fit: contain;
+    transition: var(--transition-slow);
+  }
+
+  .gallery-item:hover img { transform: scale(1.08); }
+
+  .gallery-item::after {
+    content: 'View';
+    position: absolute;
+    inset: 0;
+    background: rgba(10,10,10,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--light);
+    opacity: 0;
+    transition: var(--transition-fast);
+  }
+
+  .gallery-item:hover::after { opacity: 1; }
+
+  /* Consultation Form */
+  .consultation-section {
+    padding: 10rem 4rem;
+    background: var(--light);
+  }
+
+  .consultation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+    max-width: var(--container);
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  .consult-info h2 {
+    font-size: clamp(2.2rem, 3.5vw, 3rem);
+    margin-bottom: 2rem;
+    color: var(--text-main);
+  }
+
+  .consult-info p {
+    color: var(--text-muted);
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+  }
+
+  .consult-perks {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .perk {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 1.8rem;
+    align-items: flex-start;
+  }
+
+  .perk-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+  }
+
+  .perk h5 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+    color: var(--text-main);
+  }
+
+  .perk p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  /* Form */
+  .consult-form {
+    background: var(--light-alt);
+    padding: 3.5rem;
+    border: 1px solid var(--border-light);
+  }
+
+  .form-group {
+    margin-bottom: 2rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+    font-weight: 400;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: var(--light);
+    border: 1px solid var(--border-light);
+    padding: 1rem 1.2rem;
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--text-main);
+    outline: none;
+    transition: var(--transition-fast);
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.7;
+  }
+
+  .form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%237A7A7A'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+    cursor: pointer;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .form-submit {
+    margin-top: 1rem;
+  }
+
+  .form-note {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-top: 1.2rem;
+  }
+
+  /* Developer Section */
+  .developer-section {
+    padding: 8rem 4rem;
+    background: var(--dark);
+    color: var(--light);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .developer-section::before {
+    content: '';
+    position: absolute;
+    width: 700px; height: 700px;
+    border: 1px solid rgba(197,160,89,0.04);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .developer-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .dev-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--dark-card);
+    border: 2px solid rgba(197,160,89,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2.5rem;
+    font-size: 2.5rem;
+  }
+
+  .developer-inner h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--light);
+    margin-bottom: 1rem;
+  }
+
+  .developer-inner h2 span {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .dev-role {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 2.5rem;
+  }
+
+  .developer-inner .dev-story {
+    color: rgba(250,249,246,0.6);
+    font-weight: 300;
+    font-size: 1.05rem;
+    line-height: 2;
+    margin-bottom: 2rem;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .dev-quote {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-style: italic;
+    color: rgba(250,249,246,0.85);
+    line-height: 1.5;
+    margin: 3rem auto;
+    max-width: 650px;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--border-dark);
+    border-bottom: 1px solid var(--border-dark);
+  }
+
+  .dev-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .dev-stat h4 {
+    font-size: 2.5rem;
+    color: var(--gold);
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+  }
+
+  .dev-stat span {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(250,249,246,0.4);
+  }
+
+  .dev-signature {
+    margin-top: 4rem;
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-style: italic;
+    color: var(--gold);
+    opacity: 0.6;
+  }
+
+  /* CTA */
+  .cta-banner {
+    background: var(--gold); padding: 6rem 4rem; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-banner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,0.05) 0%, transparent 50%, rgba(0,0,0,0.05) 100%); }
+  .cta-banner h2 { font-size: clamp(2rem, 4vw, 3rem); color: var(--light); margin-bottom: 1.5rem; position: relative; }
+  .cta-banner p { color: rgba(250,249,246,0.8); font-weight: 300; max-width: 500px; margin: 0 auto 2.5rem; position: relative; }
+  .btn-white { background: var(--light); color: var(--dark); border-color: var(--light); position: relative; }
+  .btn-white:hover { background: var(--dark); color: var(--light); border-color: var(--dark); }
+
+  /* Footer */
+  footer { background: var(--dark-alt); color: var(--light); padding: 7rem 4rem 2.5rem; }
+  .footer-grid { display: grid; grid-template-columns: 2.5fr 1fr 1fr 1.5fr; gap: 4rem; max-width: var(--container); margin: 0 auto 5rem; }
+  .footer-brand .logo { font-size: 1.8rem; }
+  .footer-brand p { font-size: 0.9rem; color: rgba(250,249,246,0.45); margin-top: 1.5rem; max-width: 320px; font-weight: 200; line-height: 1.8; }
+  .footer-social { display: flex; gap: 1.5rem; margin-top: 2rem; }
+  .footer-social a { color: rgba(250,249,246,0.4); text-decoration: none; font-size: 0.75rem; transition: var(--transition-fast); }
+  .footer-social a:hover { color: var(--gold); }
+  .footer-title { font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 1.8rem; color: var(--light); font-weight: 400; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 0.9rem; }
+  .footer-links a { color: rgba(250,249,246,0.45); text-decoration: none; font-size: 0.85rem; font-weight: 300; transition: var(--transition-fast); }
+  .footer-links a:hover { color: var(--gold); }
+  .newsletter-input {
+    width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(250,249,246,0.15);
+    padding: 0.9rem 0; color: var(--light); font-family: var(--font-sans); font-size: 0.85rem;
+    font-weight: 300; outline: none; transition: var(--transition-fast); margin-bottom: 1.2rem;
+  }
+  .newsletter-input:focus { border-color: var(--gold); }
+  .newsletter-input::placeholder { color: rgba(250,249,246,0.3); }
+  .newsletter-btn { background: none; border: none; color: var(--gold); font-family: var(--font-sans); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.22em; cursor: pointer; transition: var(--transition-fast); padding: 0; }
+  .newsletter-btn:hover { color: var(--light); }
+  .footer-bottom {
+    max-width: var(--container); margin: 0 auto; border-top: 1px solid rgba(250,249,246,0.06);
+    padding-top: 2.5rem; display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.72rem; color: rgba(250,249,246,0.3); font-weight: 200;
+  }
+  .footer-legal { display: flex; gap: 2rem; }
+  .footer-legal a { color: rgba(250,249,246,0.3); text-decoration: none; transition: var(--transition-fast); }
+  .footer-legal a:hover { color: var(--gold); }
+
+  @media (max-width: 1200px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .dev-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 0 2rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .bespoke-intro-grid { grid-template-columns: 1fr; gap: 4rem; }
+    .bp-steps { grid-template-columns: 1fr; }
+    .consultation-grid { grid-template-columns: 1fr; gap: 4rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .dev-stats { grid-template-columns: 1fr 1fr; }
+    .bespoke-intro, .consultation-section { padding: 6rem 2rem; }
+    .bespoke-process, .bespoke-gallery, .developer-section { padding: 5rem 2rem; }
+  }
+  @media (max-width: 480px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    .footer-legal { justify-content: center; }
+    .gallery-grid { grid-template-columns: 1fr; max-width: 350px; margin-left: auto; margin-right: auto; }
+    .dev-stats { grid-template-columns: 1fr; text-align: center; }
+    .consult-form { padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="index.html" class="logo">Viara<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">Maison</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="boutique.html">Boutique</a></li>
+      <li><a href="bespoke.html" class="active">Bespoke</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><div></div><div></div></div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">Maison</a>
+    <a href="collections.html">Collections</a>
+    <a href="boutique.html">Boutique</a>
+    <a href="bespoke.html">Bespoke</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero">
+    <div class="page-hero-content">
+      <div class="breadcrumb reveal">
+        <a href="index.html">Home</a><span>/</span><a href="bespoke.html">Bespoke</a>
+      </div>
+      <h1 class="reveal d1"><em>Bespoke</em> Atelier</h1>
+      <p class="reveal d2">Your vision, our craftsmanship. Commission a one-of-a-kind creation that exists nowhere else in the world.</p>
+    </div>
+  </header>
+
+  <!-- BESPOKE INTRO -->
+  <section class="bespoke-intro">
+    <div class="bespoke-intro-grid">
+      <div class="bespoke-visual reveal">
+        <img src="assets/pendent.jpg" alt="Bespoke Craftsmanship">
+      </div>
+      <div class="bespoke-text">
+        <span class="overline reveal">Made for You</span>
+        <h2 class="reveal d1">A Singular<br>Creation, Yours Alone</h2>
+        <p class="reveal d2">The bespoke journey at Viara Studios is an intimate collaboration between you and our master artisans. From the very first conversation, we listen — to your story, your aesthetic, the emotion you wish to carry — and translate it into a creation that is unmistakably, irrevocably yours.</p>
+        <p class="reveal d3">Whether it's an engagement ring that captures a love story, a pendant that holds a family legacy, or a statement earring that speaks your bold truth — every detail is deliberated, every gemstone hand-selected, every curve perfected until the piece is a mirror of your intention.</p>
+        <a href="#consultation" class="btn btn-outline reveal d4">Begin Your Journey</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BESPOKE PROCESS -->
+  <section class="bespoke-process">
+    <div class="bespoke-process-inner">
+      <div class="section-header">
+        <span class="overline reveal" style="color: rgba(197,160,89,0.6);">Your Journey</span>
+        <h2 class="reveal d1" style="color: var(--light);">The Bespoke Process</h2>
+        <p class="reveal d2" style="color: rgba(250,249,246,0.5);">From dream to reality — a guided experience of discovery, design, and devotion to craft.</p>
+      </div>
+      <div class="bp-steps">
+        <div class="bp-step reveal">
+          <div class="bp-step-num">01</div>
+          <h4>Discovery</h4>
+          <p>A private consultation — in person or virtual — to understand your vision, occasion, and aesthetic preferences. We explore inspirations, materials, and possibilities together.</p>
+        </div>
+        <div class="bp-step reveal d1">
+          <div class="bp-step-num">02</div>
+          <h4>Design & Refine</h4>
+          <p>Our designers create hand-drawn sketches and 3D renderings for your review. We refine every detail — from gemstone selection to clasp engineering — until every element is perfect.</p>
+        </div>
+        <div class="bp-step reveal d2">
+          <div class="bp-step-num">03</div>
+          <h4>Creation & Delivery</h4>
+          <p>Our master goldsmiths bring the approved design to life over 6–10 weeks. Upon completion, your piece is delivered in signature Viara packaging with full documentation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BESPOKE GALLERY -->
+  <section class="bespoke-gallery">
+    <div class="section-header">
+      <span class="overline reveal">Past Commissions</span>
+      <h2 class="reveal d1">Bespoke Gallery</h2>
+      <p class="reveal d2">A selection of one-of-a-kind creations brought to life through our bespoke atelier.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal"><img src="assets/pendent.jpg" alt="Bespoke Pendant"></div>
+      <div class="gallery-item reveal d1"><img src="assets/trident-pendent.jpg" alt="Bespoke Cross Pendant"></div>
+      <div class="gallery-item reveal d2"><img src="assets/matching-pendent.jpg" alt="Bespoke Matching Set"></div>
+      <div class="gallery-item reveal d3"><img src="assets/earrings.jpg" alt="Bespoke Earrings"></div>
+    </div>
+  </section>
+
+  <!-- CONSULTATION FORM -->
+  <section class="consultation-section" id="consultation">
+    <div class="consultation-grid">
+      <div class="consult-info">
+        <span class="overline reveal">Private Consultation</span>
+        <h2 class="reveal d1">Let's Begin<br>Your Commission</h2>
+        <p class="reveal d2">Share your vision with us and a member of our bespoke team will respond within 24 hours to schedule your private consultation.</p>
+        <p class="reveal d3">All consultations are complimentary, confidential, and carry no obligation. We simply want to understand your dream and explore whether Viara is the right home for its creation.</p>
+
+        <div class="consult-perks reveal d4">
+          <div class="perk">
+            <span class="perk-icon">💎</span>
+            <div>
+              <h5>Exclusive Stone Access</h5>
+              <p>Access to rare, unset gemstones from our private vault and partner mines worldwide.</p>
+            </div>
+          </div>
+          <div class="perk">
+            <span class="perk-icon">🎨</span>
+            <div>
+              <h5>Custom 3D Rendering</h5>
+              <p>See your piece come to life in photo-realistic detail before a single tool touches metal.</p>
+            </div>
+          </div>
+          <div class="perk">
+            <span class="perk-icon">🔒</span>
+            <div>
+              <h5>Complete Confidentiality</h5>
+              <p>Your design remains exclusively yours. We never reproduce bespoke commissions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form class="consult-form reveal" onsubmit="event.preventDefault(); this.innerHTML = '<div style=\'text-align:center;padding:4rem 2rem;\'><h3 style=\'font-size:1.8rem;margin-bottom:1rem;color:var(--text-main);\'>Thank You</h3><p style=\'color:var(--text-muted);font-weight:300;\'>Our bespoke team will be in touch within 24 hours.</p></div>';">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" placeholder="Your first name" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" placeholder="Your last name" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="+1 (000) 000-0000">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pieceType">Type of Piece</label>
+            <select id="pieceType">
+              <option value="">Select a category</option>
+              <option value="ring">Ring</option>
+              <option value="necklace">Necklace / Pendant</option>
+              <option value="earrings">Earrings</option>
+              <option value="bracelet">Bracelet</option>
+              <option value="set">Matching Set</option>
+              <option value="other">Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="budget">Approximate Budget</label>
+            <select id="budget">
+              <option value="">Select a range</option>
+              <option value="2-5">$2,000 – $5,000</option>
+              <option value="5-10">$5,000 – $10,000</option>
+              <option value="10-25">$10,000 – $25,000</option>
+              <option value="25+">$25,000+</option>
+              <option value="discuss">Prefer to discuss</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="occasion">Occasion</label>
+          <input type="text" id="occasion" placeholder="e.g., Engagement, Anniversary, Gift…">
+        </div>
+        <div class="form-group">
+          <label for="vision">Your Vision</label>
+          <textarea id="vision" placeholder="Tell us about your dream piece — materials, stones, style, any inspirations you love…"></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-solid" style="width: 100%;">Submit Consultation Request</button>
+        </div>
+        <p class="form-note">All fields marked are optional except name and email. Your information is protected under our privacy policy.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- DEVELOPER / PROJECT SECTION -->
+  <section class="developer-section">
+    <div class="developer-inner">
+      <div class="dev-avatar reveal">✦</div>
+      <span class="overline reveal d1" style="color: rgba(197,160,89,0.5);">Behind This Project</span>
+      <h2 class="reveal d2">Crafted by <span>Garvit Arora</span></h2>
+      <span class="dev-role reveal d3">Designer & Developer</span>
+
+      <p class="dev-story reveal d4">
+        Viara Studios is a passion project that I, Garvit Arora, conceived, designed, and developed from the ground up. What began as a creative challenge — to build a luxury brand experience that felt genuinely premium, immersive, and emotionally resonant — evolved into one of the most rewarding projects I've ever worked on.
+      </p>
+
+      <p class="dev-story reveal d4">
+        Every animation timing, every colour value, every typographic decision was deliberate. I wanted visitors to feel the weight of gold, the shimmer of a gemstone, the quiet confidence of true luxury — all through pixels and code. The process pushed me to think like a jeweller: obsessing over details invisible to most, but felt by everyone.
+      </p>
+
+      <div class="dev-quote reveal">
+        "Building Viara taught me that great design isn't about decoration — it's about intention. Every pixel should earn its place, just like every facet on a diamond."
+      </div>
+
+      <p class="dev-story reveal">
+        From the scroll-triggered reveal animations to the responsive arch-shaped card layouts, from the particle system in the hero to the functional filter and sort on the boutique page — this project represents a complete front-end journey. It was an incredible experience to bring a fictional brand to life with the same care a real maison would demand.
+      </p>
+
+      <div class="dev-stats reveal">
+        <div class="dev-stat">
+          <h4>5</h4>
+          <span>Pages Designed</span>
+        </div>
+        <div class="dev-stat">
+          <h4>4000+</h4>
+          <span>Lines of Code</span>
+        </div>
+        <div class="dev-stat">
+          <h4>100%</h4>
+          <span>Hand-Coded</span>
+        </div>
+        <div class="dev-stat">
+          <h4>∞</h4>
+          <span>Passion Invested</span>
+        </div>
+      </div>
+
+      <div class="dev-signature reveal">— Garvit Arora, 2026</div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <h2 class="reveal">Ready to Create Something Extraordinary?</h2>
+    <p class="reveal d1">Every masterpiece begins with a single conversation. Let's start yours.</p>
+    <a href="#consultation" class="btn btn-white reveal d2">Book Your Consultation</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Viara<span>.</span></a>
+        <p>Redefining haute joaillerie through ethical sourcing, masterful craftsmanship, and timeless design sensibility.</p>
+        <div class="footer-social"><a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">LinkedIn</a></div>
+      </div>
+      <div>
+        <h4 class="footer-title">Maison</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="about.html#craftsmanship">Savoir-Faire</a></li>
+          <li><a href="about.html#sustainability">Sustainability</a></li>
+          <li><a href="bespoke.html">Bespoke Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Client Care</h4>
+        <ul class="footer-links">
+          <li><a href="contact.html">Contact Concierge</a></li>
+          <li><a href="#">Ring Sizer</a></li>
+          <li><a href="#">Care & Repair</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Private Journal</h4>
+        <p style="color:rgba(250,249,246,0.4);font-size:0.85rem;margin-bottom:1.2rem;font-weight:300;line-height:1.7;">Subscribe for exclusive previews and first access.</p>
+        <form onsubmit="event.preventDefault();this.querySelector('input').value='';this.querySelector('input').placeholder='Thank you';">
+          <input type="email" placeholder="Your Email Address" class="newsletter-input" required>
+          <button type="submit" class="newsletter-btn">Subscribe →</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Viara Studios. Designed & Developed by Garvit Arora. All Rights Reserved.</span>
+      <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Accessibility</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = '';
+    }));
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

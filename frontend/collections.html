@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Collections | Viara Studios</title>
+<meta name="description" content="Explore the curated collections of Viara Studios — from everyday elegance to high jewellery masterpieces.">
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║                                                              ║
+  ║   DIGITAL SIGNATURE — COPYRIGHT NOTICE                       ║
+  ║   Designed & Developed by: Garvit Arora                      ║
+  ║   All rights reserved © 2026                                 ║
+  ║   Unauthorized reproduction or distribution is prohibited.   ║
+  ║                                                              ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap');
+
+  :root {
+    --gold: #C5A059;
+    --gold-hover: #b08d4a;
+    --dark: #0A0A0A;
+    --dark-alt: #111111;
+    --light: #FAF9F6;
+    --light-alt: #F0EFEA;
+    --light-warm: #F5F0E8;
+    --text-main: #2A2A2A;
+    --text-muted: #7A7A7A;
+    --text-subtle: #ABABAB;
+    --border-light: rgba(0,0,0,0.06);
+    --border-dark: rgba(255,255,255,0.08);
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Montserrat', sans-serif;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-slow: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-medium: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-fast: all 0.3s ease;
+    --container: 1400px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: var(--font-sans); color: var(--text-main); background: var(--light);
+    overflow-x: hidden; line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--dark); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); }
+  ::selection { background: var(--gold); color: var(--light); }
+  img { display: block; max-width: 100%; }
+
+  h1, h2, h3, h4, h5 { font-family: var(--font-serif); font-weight: 300; line-height: 1.15; }
+
+  .overline {
+    font-family: var(--font-sans); font-size: 0.65rem; font-weight: 400;
+    text-transform: uppercase; letter-spacing: 0.35em; color: var(--gold);
+    display: inline-block; margin-bottom: 1.2rem;
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .d1 { transition-delay: 0.1s !important; }
+  .d2 { transition-delay: 0.2s !important; }
+  .d3 { transition-delay: 0.3s !important; }
+  .d4 { transition-delay: 0.4s !important; }
+  .d5 { transition-delay: 0.5s !important; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.8rem;
+    padding: 1.1rem 2.8rem; font-family: var(--font-sans); font-size: 0.68rem;
+    font-weight: 400; text-transform: uppercase; letter-spacing: 0.22em;
+    text-decoration: none; transition: var(--transition-fast); cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .btn-outline { border-color: var(--gold); color: var(--gold); background: transparent; }
+  .btn-outline:hover { background: var(--gold); color: var(--light); }
+  .btn-outline-dark { border-color: var(--text-main); color: var(--text-main); background: transparent; }
+  .btn-outline-dark:hover { background: var(--text-main); color: var(--light); }
+
+  /* Nav */
+  nav {
+    position: fixed; top: 0; width: 100%; height: 80px; padding: 0 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 1000; transition: var(--transition-medium); background: transparent;
+  }
+  nav.scrolled {
+    height: 64px; background: rgba(10,10,10,0.96);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-dark);
+  }
+  .logo {
+    font-family: var(--font-serif); font-size: 1.7rem; font-weight: 400;
+    letter-spacing: 0.08em; color: var(--light); text-decoration: none; text-transform: uppercase;
+  }
+  .logo span { color: var(--gold); font-style: italic; text-transform: lowercase; font-size: 1.4rem; }
+  .nav-links { display: flex; gap: 3.5rem; list-style: none; align-items: center; }
+  .nav-links a {
+    text-decoration: none; color: rgba(250,249,246,0.75); font-size: 0.68rem;
+    font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase;
+    transition: var(--transition-fast); position: relative; padding-bottom: 4px;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 0; height: 1px; background: var(--gold); transition: width 0.3s ease;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-links a.active { color: var(--gold); }
+  .nav-links a.active::after { width: 100%; }
+  .nav-cta {
+    color: var(--gold) !important; border: 1px solid rgba(197,160,89,0.4);
+    padding: 0.6rem 1.5rem !important; font-size: 0.62rem !important;
+  }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--light) !important; border-color: var(--gold) !important; }
+
+  .hamburger { display: none; flex-direction: column; gap: 7px; cursor: pointer; z-index: 1001; padding: 5px; }
+  .hamburger div { width: 28px; height: 1px; background: var(--light); transition: var(--transition-fast); transform-origin: center; }
+  .hamburger.open div:first-child { transform: rotate(45deg) translate(5px, 6px); }
+  .hamburger.open div:last-child { transform: rotate(-45deg) translate(5px, -6px); }
+
+  .mobile-menu {
+    position: fixed; inset: 0; background: var(--dark); z-index: 999;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 2.5rem; opacity: 0; pointer-events: none; transition: var(--transition-slow);
+  }
+  .mobile-menu.open { opacity: 1; pointer-events: auto; }
+  .mobile-menu a {
+    font-family: var(--font-serif); font-size: 2.8rem; color: var(--light);
+    text-decoration: none; transition: var(--transition-fast);
+    opacity: 0; transform: translateY(20px);
+  }
+  .mobile-menu.open a { opacity: 1; transform: translateY(0); }
+  .mobile-menu.open a:nth-child(1) { transition-delay: 0.1s; }
+  .mobile-menu.open a:nth-child(2) { transition-delay: 0.2s; }
+  .mobile-menu.open a:nth-child(3) { transition-delay: 0.3s; }
+  .mobile-menu.open a:nth-child(4) { transition-delay: 0.4s; }
+  .mobile-menu.open a:nth-child(5) { transition-delay: 0.5s; }
+  .mobile-menu.open a:nth-child(6) { transition-delay: 0.6s; }
+  .mobile-menu a:hover { color: var(--gold); font-style: italic; }
+
+  /* Page Hero */
+  .page-hero {
+    height: 60vh; min-height: 450px; background: var(--dark);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .page-hero::before {
+    content: ''; position: absolute; width: 100%; height: 100%;
+    background: radial-gradient(ellipse 50% 50% at 50% 60%, rgba(197,160,89,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-hero-content { position: relative; z-index: 2; }
+  .page-hero h1 { font-size: clamp(3rem, 6vw, 5rem); color: var(--light); margin-bottom: 1rem; }
+  .page-hero h1 em { color: var(--gold); font-style: italic; }
+  .page-hero p { color: rgba(250,249,246,0.5); font-size: 1rem; font-weight: 200; max-width: 550px; margin: 0 auto; letter-spacing: 0.04em; line-height: 1.8; }
+  .breadcrumb { margin-bottom: 2rem; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em; }
+  .breadcrumb a { color: rgba(250,249,246,0.4); text-decoration: none; transition: var(--transition-fast); }
+  .breadcrumb a:hover { color: var(--gold); }
+  .breadcrumb span { color: var(--gold); margin: 0 0.5rem; }
+
+  /* Collection Feature */
+  .collection-feature {
+    padding: 8rem 4rem;
+    max-width: var(--container);
+    margin: 0 auto;
+  }
+
+  .collection-feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    margin-bottom: 6rem;
+    padding-bottom: 6rem;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .collection-feature-grid:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .collection-feature-grid.reverse { direction: rtl; }
+  .collection-feature-grid.reverse > * { direction: ltr; }
+
+  .cf-visual {
+    position: relative;
+    border-radius: 200px 200px 12px 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    background: var(--light-alt);
+    aspect-ratio: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cf-visual img {
+    width: 85%;
+    height: 85%;
+    object-fit: cover;
+    border-radius: 160px 160px 8px 8px;
+    transition: var(--transition-slow);
+  }
+
+  .cf-visual:hover img { transform: scale(1.03); }
+
+  .cf-visual::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 30%;
+    background: linear-gradient(to top, rgba(240,239,234,0.6), transparent);
+    pointer-events: none;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .cf-content { padding: 2rem 0; }
+
+  .cf-content .collection-number {
+    font-family: var(--font-serif);
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.15;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .cf-content h2 {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+  }
+
+  .cf-content p {
+    color: var(--text-muted);
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+  }
+
+  .cf-details {
+    display: flex;
+    gap: 3rem;
+    margin: 2.5rem 0;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .cf-detail h5 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--gold);
+    font-weight: 300;
+    margin-bottom: 0.3rem;
+  }
+
+  .cf-detail span {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+  }
+
+  /* Pieces Grid */
+  .pieces-section {
+    padding: 8rem 4rem;
+    background: var(--light-alt);
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 5rem;
+  }
+
+  .section-header h2 {
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-header p {
+    color: var(--text-muted);
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .pieces-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+    max-width: var(--container);
+    margin: 0 auto;
+  }
+
+  .piece-card {
+    text-decoration: none; color: inherit; display: block; position: relative;
+  }
+
+  .piece-image {
+    background: var(--light);
+    aspect-ratio: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    transition: var(--transition-fast);
+  }
+
+  .piece-image img {
+    width: 80%; height: 80%; object-fit: contain;
+    transition: var(--transition-slow);
+  }
+
+  .piece-card:hover .piece-image {
+    border-color: rgba(197,160,89,0.2);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+  }
+
+  .piece-card:hover .piece-image img {
+    transform: scale(1.06) translateY(-5px);
+  }
+
+  .piece-badge {
+    position: absolute; top: 1rem; left: 1rem; background: var(--dark);
+    color: var(--gold); font-size: 0.58rem; text-transform: uppercase;
+    letter-spacing: 0.15em; padding: 0.4rem 0.8rem; z-index: 2;
+  }
+
+  .piece-quick {
+    position: absolute; bottom: 0; left: 0; width: 100%; padding: 1.1rem;
+    background: var(--dark); text-align: center; font-size: 0.65rem;
+    text-transform: uppercase; letter-spacing: 0.22em; color: var(--light);
+    transform: translateY(100%); transition: var(--transition-fast); z-index: 2;
+  }
+
+  .piece-card:hover .piece-quick { transform: translateY(0); }
+
+  .piece-info { text-align: center; }
+  .piece-cat { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-subtle); margin-bottom: 0.4rem; display: block; }
+  .piece-name { font-family: var(--font-serif); font-size: 1.35rem; color: var(--text-main); margin-bottom: 0.6rem; font-weight: 400; }
+  .piece-price { font-family: var(--font-sans); font-size: 0.88rem; font-weight: 300; color: var(--text-muted); }
+
+  /* Philosophy Strip */
+  .philosophy-strip {
+    background: var(--dark);
+    padding: 7rem 4rem;
+    text-align: center;
+  }
+  .philosophy-strip blockquote {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--light);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .philosophy-strip cite {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  /* CTA */
+  .cta-banner {
+    background: var(--gold); padding: 6rem 4rem; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-banner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,0.05) 0%, transparent 50%, rgba(0,0,0,0.05) 100%); }
+  .cta-banner h2 { font-size: clamp(2rem, 4vw, 3rem); color: var(--light); margin-bottom: 1.5rem; position: relative; }
+  .cta-banner p { color: rgba(250,249,246,0.8); font-weight: 300; max-width: 500px; margin: 0 auto 2.5rem; position: relative; }
+  .btn-white { background: var(--light); color: var(--dark); border-color: var(--light); position: relative; }
+  .btn-white:hover { background: var(--dark); color: var(--light); border-color: var(--dark); }
+
+  /* Footer */
+  footer { background: var(--dark-alt); color: var(--light); padding: 7rem 4rem 2.5rem; }
+  .footer-grid { display: grid; grid-template-columns: 2.5fr 1fr 1fr 1.5fr; gap: 4rem; max-width: var(--container); margin: 0 auto 5rem; }
+  .footer-brand .logo { font-size: 1.8rem; }
+  .footer-brand p { font-size: 0.9rem; color: rgba(250,249,246,0.45); margin-top: 1.5rem; max-width: 320px; font-weight: 200; line-height: 1.8; }
+  .footer-social { display: flex; gap: 1.5rem; margin-top: 2rem; }
+  .footer-social a { color: rgba(250,249,246,0.4); text-decoration: none; font-size: 0.75rem; transition: var(--transition-fast); }
+  .footer-social a:hover { color: var(--gold); }
+  .footer-title { font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 1.8rem; color: var(--light); font-weight: 400; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 0.9rem; }
+  .footer-links a { color: rgba(250,249,246,0.45); text-decoration: none; font-size: 0.85rem; font-weight: 300; transition: var(--transition-fast); }
+  .footer-links a:hover { color: var(--gold); }
+  .newsletter-input {
+    width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(250,249,246,0.15);
+    padding: 0.9rem 0; color: var(--light); font-family: var(--font-sans); font-size: 0.85rem;
+    font-weight: 300; outline: none; transition: var(--transition-fast); margin-bottom: 1.2rem;
+  }
+  .newsletter-input:focus { border-color: var(--gold); }
+  .newsletter-input::placeholder { color: rgba(250,249,246,0.3); }
+  .newsletter-btn { background: none; border: none; color: var(--gold); font-family: var(--font-sans); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.22em; cursor: pointer; transition: var(--transition-fast); padding: 0; }
+  .newsletter-btn:hover { color: var(--light); }
+  .footer-bottom {
+    max-width: var(--container); margin: 0 auto; border-top: 1px solid rgba(250,249,246,0.06);
+    padding-top: 2.5rem; display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.72rem; color: rgba(250,249,246,0.3); font-weight: 200;
+  }
+  .footer-legal { display: flex; gap: 2rem; }
+  .footer-legal a { color: rgba(250,249,246,0.3); text-decoration: none; transition: var(--transition-fast); }
+  .footer-legal a:hover { color: var(--gold); }
+
+  /* Filter Bar */
+  .filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    background: none;
+    border: 1px solid var(--border-light);
+    padding: 0.7rem 1.8rem;
+    font-family: var(--font-sans);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition-fast);
+  }
+
+  .filter-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .filter-btn.active {
+    background: var(--dark);
+    color: var(--gold);
+    border-color: var(--dark);
+  }
+
+  @media (max-width: 1200px) {
+    .pieces-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 0 2rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .collection-feature-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .collection-feature-grid.reverse { direction: ltr; }
+    .pieces-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .cf-details { gap: 2rem; }
+    .collection-feature { padding: 5rem 2rem; }
+    .pieces-section { padding: 5rem 2rem; }
+  }
+  @media (max-width: 480px) {
+    .pieces-grid { grid-template-columns: 1fr; max-width: 350px; margin-left: auto; margin-right: auto; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    .footer-legal { justify-content: center; }
+    .cf-details { flex-direction: column; gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="index.html" class="logo">Viara<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">Maison</a></li>
+      <li><a href="collections.html" class="active">Collections</a></li>
+      <li><a href="boutique.html">Boutique</a></li>
+      <li><a href="bespoke.html">Bespoke</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><div></div><div></div></div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">Maison</a>
+    <a href="collections.html">Collections</a>
+    <a href="boutique.html">Boutique</a>
+    <a href="bespoke.html">Bespoke</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero">
+    <div class="page-hero-content">
+      <div class="breadcrumb reveal">
+        <a href="index.html">Home</a><span>/</span><a href="collections.html">Collections</a>
+      </div>
+      <h1 class="reveal d1">Our <em>Collections</em></h1>
+      <p class="reveal d2">Three distinct expressions of artistry — each inspired by light, form, and the poetry of precious materials.</p>
+    </div>
+  </header>
+
+  <!-- COLLECTION FEATURES -->
+  <section class="collection-feature">
+
+    <!-- Collection 1: Aura Minimal -->
+    <div class="collection-feature-grid reveal">
+      <div class="cf-visual">
+        <img src="assets/pendent.jpg" alt="Aura Minimal Collection">
+      </div>
+      <div class="cf-content">
+        <div class="collection-number">I</div>
+        <span class="overline">Everyday Elegance</span>
+        <h2>Aura Minimal</h2>
+        <p>Refined simplicity for the modern connoisseur. The Aura Minimal collection distills luxury to its purest essence — clean lines, luminous metals, and singular gemstone accents that speak with quiet confidence.</p>
+        <p>Designed for everyday wear, each piece balances delicacy with durability, crafted from 18k gold with ethically sourced stones that catch the light at every turn.</p>
+        <div class="cf-details">
+          <div class="cf-detail"><h5>18k</h5><span>Solid Gold</span></div>
+          <div class="cf-detail"><h5>6</h5><span>Pieces</span></div>
+          <div class="cf-detail"><h5>2024</h5><span>Season</span></div>
+        </div>
+        <a href="boutique.html" class="btn btn-outline">Shop Aura Minimal</a>
+      </div>
+    </div>
+
+    <!-- Collection 2: Royal Pavilion -->
+    <div class="collection-feature-grid reverse reveal">
+      <div class="cf-visual">
+        <img src="assets/trident-pendent.jpg" alt="Royal Pavilion Collection">
+      </div>
+      <div class="cf-content">
+        <div class="collection-number">II</div>
+        <span class="overline">High Jewellery</span>
+        <h2>Royal Pavilion</h2>
+        <p>Architectural grandeur rendered in precious metal. The Royal Pavilion collection draws from Gothic arches, celestial geometry, and the bold silhouettes of medieval craftsmanship — reimagined for the contemporary stage.</p>
+        <p>Statement pieces forged with exacting precision, featuring intricate lattice work, sculptural forms, and a commanding presence that demands attention.</p>
+        <div class="cf-details">
+          <div class="cf-detail"><h5>925</h5><span>Sterling Silver</span></div>
+          <div class="cf-detail"><h5>8</h5><span>Pieces</span></div>
+          <div class="cf-detail"><h5>2025</h5><span>Season</span></div>
+        </div>
+        <a href="boutique.html" class="btn btn-outline">Shop Royal Pavilion</a>
+      </div>
+    </div>
+
+    <!-- Collection 3: Nocturne -->
+    <div class="collection-feature-grid reveal">
+      <div class="cf-visual">
+        <img src="assets/matching-pendent.jpg" alt="Nocturne Collection">
+      </div>
+      <div class="cf-content">
+        <div class="collection-number">III</div>
+        <span class="overline">Evening Statements</span>
+        <h2>Nocturne</h2>
+        <p>Born from shadow and fire. The Nocturne collection explores the drama of contrast — dark oxidized metals embrace vivid, heart-shaped resin stones in a dance between the visceral and the refined.</p>
+        <p>Designed for evenings that demand presence, these matching pairs and singular pendants carry an emotional weight that transcends conventional adornment.</p>
+        <div class="cf-details">
+          <div class="cf-detail"><h5>Duo</h5><span>Matching Pairs</span></div>
+          <div class="cf-detail"><h5>5</h5><span>Pieces</span></div>
+          <div class="cf-detail"><h5>2025</h5><span>Season</span></div>
+        </div>
+        <a href="boutique.html" class="btn btn-outline">Shop Nocturne</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PHILOSOPHY STRIP -->
+  <section class="philosophy-strip">
+    <div class="reveal">
+      <span class="overline" style="color: rgba(197,160,89,0.5);">Philosophy</span>
+      <blockquote>"Each collection is a chapter — every piece, a verse in the ongoing poem of Viara."</blockquote>
+      <cite>— Atelier Viara, Creative Direction</cite>
+    </div>
+  </section>
+
+  <!-- ALL PIECES -->
+  <section class="pieces-section">
+    <div class="section-header">
+      <span class="overline reveal">Complete Archive</span>
+      <h2 class="reveal d1">All Pieces</h2>
+      <p class="reveal d2">Browse every creation across our three signature collections.</p>
+    </div>
+
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" onclick="filterPieces('all', this)">All</button>
+      <button class="filter-btn" onclick="filterPieces('aura', this)">Aura Minimal</button>
+      <button class="filter-btn" onclick="filterPieces('royal', this)">Royal Pavilion</button>
+      <button class="filter-btn" onclick="filterPieces('nocturne', this)">Nocturne</button>
+    </div>
+
+    <div class="pieces-grid" id="piecesGrid">
+
+      <!-- Piece 1 -->
+      <a href="#" class="piece-card reveal" data-collection="nocturne">
+        <div class="piece-image">
+          <span class="piece-badge">Nocturne</span>
+          <img src="assets/matching-pendent.jpg" alt="Cœur Éternel Duo">
+          <div class="piece-quick">View Details</div>
+        </div>
+        <div class="piece-info">
+          <span class="piece-cat">Matching Pendants</span>
+          <h3 class="piece-name">Cœur Éternel Duo</h3>
+          <span class="piece-price">$6,400</span>
+        </div>
+      </a>
+
+      <!-- Piece 2 -->
+      <a href="#" class="piece-card reveal d1" data-collection="royal">
+        <div class="piece-image">
+          <span class="piece-badge">Royal Pavilion</span>
+          <img src="assets/trident-pendent.jpg" alt="Croix Flamme">
+          <div class="piece-quick">View Details</div>
+        </div>
+        <div class="piece-info">
+          <span class="piece-cat">Necklaces</span>
+          <h3 class="piece-name">Croix Flamme</h3>
+          <span class="piece-price">$2,850</span>
+        </div>
+      </a>
+
+      <!-- Piece 3 -->
+      <a href="#" class="piece-card reveal d2" data-collection="aura">
+        <div class="piece-image">
+          <span class="piece-badge">Aura</span>
+          <img src="assets/pendent.jpg" alt="Étoile Céleste">
+          <div class="piece-quick">View Details</div>
+        </div>
+        <div class="piece-info">
+          <span class="piece-cat">Pendants</span>
+          <h3 class="piece-name">Étoile Céleste</h3>
+          <span class="piece-price">$3,200</span>
+        </div>
+      </a>
+
+      <!-- Piece 4 -->
+      <a href="#" class="piece-card reveal d3" data-collection="aura">
+        <div class="piece-image">
+          <span class="piece-badge">New</span>
+          <img src="assets/earrings.jpg" alt="Lame Dorée Drops">
+          <div class="piece-quick">View Details</div>
+        </div>
+        <div class="piece-info">
+          <span class="piece-cat">Earrings</span>
+          <h3 class="piece-name">Lame Dorée Drops</h3>
+          <span class="piece-price">$5,100</span>
+        </div>
+      </a>
+
+      <!-- Piece 5 -->
+      <a href="#" class="piece-card reveal" data-collection="nocturne">
+        <div class="piece-image">
+          <img src="assets/matching-pendent.jpg" alt="Cœur Noir Solo">
+          <div class="piece-quick">View Details</div>
+        </div>
+        <div class="piece-info">
+          <span class="piece-cat">Pendants</span>
+          <h3 class="piece-name">Cœur Noir Solo</h3>
+          <span class="piece-price">$3,800</span>
+        </div>
+      </a>
+
+      <!-- Piece 6 -->
+      <a href="#" class="piece-card reveal d1" data-collection="royal">
+        <div class="piece-image">
+          <img src="assets/trident-pendent.jpg" alt="Croix Éternelle">
+          <div class="piece-quick">View Details</div>
+        </div>
+        <div class="piece-info">
+          <span class="piece-cat">Necklaces</span>
+          <h3 class="piece-name">Croix Éternelle</h3>
+          <span class="piece-price">$2,400</span>
+        </div>
+      </a>
+
+      <!-- Piece 7 -->
+      <a href="#" class="piece-card reveal d2" data-collection="aura">
+        <div class="piece-image">
+          <span class="piece-badge">Signature</span>
+          <img src="assets/pendent.jpg" alt="Orbite Céleste">
+          <div class="piece-quick">View Details</div>
+        </div>
+        <div class="piece-info">
+          <span class="piece-cat">Pendants</span>
+          <h3 class="piece-name">Orbite Céleste</h3>
+          <span class="piece-price">$8,900</span>
+        </div>
+      </a>
+
+      <!-- Piece 8 -->
+      <a href="#" class="piece-card reveal d3" data-collection="nocturne">
+        <div class="piece-image">
+          <img src="assets/earrings.jpg" alt="Dague de Nuit">
+          <div class="piece-quick">View Details</div>
+        </div>
+        <div class="piece-info">
+          <span class="piece-cat">Earrings</span>
+          <h3 class="piece-name">Dague de Nuit</h3>
+          <span class="piece-price">$4,600</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <h2 class="reveal">Cannot Find Your Piece?</h2>
+    <p class="reveal d1">Our bespoke atelier can bring any vision to life. Commission a one-of-a-kind creation.</p>
+    <a href="bespoke.html" class="btn btn-white reveal d2">Request Bespoke Consultation</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Viara<span>.</span></a>
+        <p>Redefining haute joaillerie through ethical sourcing, masterful craftsmanship, and timeless design sensibility.</p>
+        <div class="footer-social"><a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">LinkedIn</a></div>
+      </div>
+      <div>
+        <h4 class="footer-title">Maison</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="about.html#craftsmanship">Savoir-Faire</a></li>
+          <li><a href="about.html#sustainability">Sustainability</a></li>
+          <li><a href="bespoke.html">Bespoke Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Client Care</h4>
+        <ul class="footer-links">
+          <li><a href="contact.html">Contact Concierge</a></li>
+          <li><a href="#">Ring Sizer</a></li>
+          <li><a href="#">Care & Repair</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Private Journal</h4>
+        <p style="color:rgba(250,249,246,0.4);font-size:0.85rem;margin-bottom:1.2rem;font-weight:300;line-height:1.7;">Subscribe for exclusive previews and first access to new collections.</p>
+        <form onsubmit="event.preventDefault();this.querySelector('input').value='';this.querySelector('input').placeholder='Thank you';">
+          <input type="email" placeholder="Your Email Address" class="newsletter-input" required>
+          <button type="submit" class="newsletter-btn">Subscribe →</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Viara Studios. All Rights Reserved.</span>
+      <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Accessibility</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = '';
+    }));
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => obs.observe(el));
+
+    // Filter functionality
+    function filterPieces(collection, btn) {
+      // Update active button
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Filter cards
+      const cards = document.querySelectorAll('.piece-card');
+      cards.forEach(card => {
+        if (collection === 'all' || card.dataset.collection === collection) {
+          card.style.display = 'block';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 50);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(20px)';
+          setTimeout(() => { card.style.display = 'none'; }, 300);
+        }
+      });
+    }
+  </script>
+</body>
+</html>

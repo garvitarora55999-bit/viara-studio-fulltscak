@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viara Studios | Fine Jewellery — Haute Joaillerie</title>
+<meta name="description" content="Discover the epitome of artisan craftsmanship at Viara Studios. Rare gemstones meet visionary design to create timeless heirlooms.">
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║                                                              ║
+  ║   DIGITAL SIGNATURE — COPYRIGHT NOTICE                       ║
+  ║   Designed & Developed by: Garvit Arora                      ║
+  ║   All rights reserved © 2026                                 ║
+  ║   Unauthorized reproduction or distribution is prohibited.   ║
+  ║                                                              ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap');
+
+  :root {
+    --gold: #C5A059;
+    --gold-hover: #b08d4a;
+    --gold-light: rgba(197, 160, 89, 0.12);
+    --dark: #0A0A0A;
+    --dark-alt: #111111;
+    --dark-card: #1A1A1A;
+    --light: #FAF9F6;
+    --light-alt: #F0EFEA;
+    --light-warm: #F5F0E8;
+    --text-main: #2A2A2A;
+    --text-muted: #7A7A7A;
+    --text-subtle: #ABABAB;
+    --border-light: rgba(0,0,0,0.06);
+    --border-dark: rgba(255,255,255,0.08);
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Montserrat', sans-serif;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-slow: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-medium: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-fast: all 0.3s ease;
+    --container: 1400px;
+    --nav-height: 80px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: var(--font-sans);
+    color: var(--text-main);
+    background: var(--light);
+    overflow-x: hidden;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--dark); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+  ::selection { background: var(--gold); color: var(--light); }
+
+  img { display: block; max-width: 100%; }
+
+  h1, h2, h3, h4, h5, .serif {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    line-height: 1.15;
+  }
+
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 4rem;
+  }
+
+  .overline {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    display: inline-block;
+    margin-bottom: 1.2rem;
+    position: relative;
+  }
+
+  .overline-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .overline-line::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    display: block;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+  }
+  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+  }
+  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+  }
+  .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+  .d1 { transition-delay: 0.1s !important; }
+  .d2 { transition-delay: 0.2s !important; }
+  .d3 { transition-delay: 0.3s !important; }
+  .d4 { transition-delay: 0.4s !important; }
+  .d5 { transition-delay: 0.5s !important; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1.1rem 2.8rem;
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    text-decoration: none;
+    transition: var(--transition-fast);
+    cursor: pointer;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-outline { border-color: var(--gold); color: var(--gold); background: transparent; }
+  .btn-outline:hover { background: var(--gold); color: var(--light); }
+
+  .btn-outline-dark { border-color: var(--text-main); color: var(--text-main); background: transparent; }
+  .btn-outline-dark:hover { background: var(--text-main); color: var(--light); }
+
+  .btn-solid { background: var(--gold); color: var(--light); border-color: var(--gold); }
+  .btn-solid:hover { background: var(--gold-hover); border-color: var(--gold-hover); }
+
+  .btn-text {
+    padding: 0; border: none; color: var(--gold); background: none;
+    font-family: var(--font-sans); font-size: 0.68rem; font-weight: 400;
+    text-transform: uppercase; letter-spacing: 0.22em; cursor: pointer;
+    transition: var(--transition-fast);
+  }
+  .btn-text::after { content: '→'; display: inline-block; margin-left: 0.6rem; transition: transform 0.3s ease; }
+  .btn-text:hover::after { transform: translateX(5px); }
+
+  .btn-arrow { font-size: 1rem; transition: transform 0.3s ease; }
+  .btn:hover .btn-arrow { transform: translateX(4px); }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; height: var(--nav-height); padding: 0 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 1000; transition: var(--transition-medium); background: transparent;
+  }
+  nav.scrolled {
+    height: 64px; background: rgba(10,10,10,0.96);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-dark);
+  }
+  .logo {
+    font-family: var(--font-serif); font-size: 1.7rem; font-weight: 400;
+    letter-spacing: 0.08em; color: var(--light); text-decoration: none; text-transform: uppercase;
+    transition: var(--transition-fast);
+  }
+  .logo span { color: var(--gold); font-style: italic; text-transform: lowercase; font-size: 1.4rem; }
+
+  .nav-links { display: flex; gap: 3.5rem; list-style: none; align-items: center; }
+  .nav-links a {
+    text-decoration: none; color: rgba(250,249,246,0.75); font-size: 0.68rem;
+    font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase;
+    transition: var(--transition-fast); position: relative; padding-bottom: 4px;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 0; height: 1px; background: var(--gold); transition: width 0.3s ease;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-links a.active { color: var(--gold); }
+  .nav-links a.active::after { width: 100%; }
+
+  .nav-cta {
+    color: var(--gold) !important; border: 1px solid rgba(197,160,89,0.4);
+    padding: 0.6rem 1.5rem !important; font-size: 0.62rem !important;
+  }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--light) !important; border-color: var(--gold) !important; }
+
+  .hamburger { display: none; flex-direction: column; gap: 7px; cursor: pointer; z-index: 1001; padding: 5px; }
+  .hamburger div { width: 28px; height: 1px; background: var(--light); transition: var(--transition-fast); transform-origin: center; }
+  .hamburger.open div:first-child { transform: rotate(45deg) translate(5px, 6px); }
+  .hamburger.open div:last-child { transform: rotate(-45deg) translate(5px, -6px); }
+
+  .mobile-menu {
+    position: fixed; inset: 0; background: var(--dark); z-index: 999;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 2.5rem; opacity: 0; pointer-events: none; transition: var(--transition-slow);
+  }
+  .mobile-menu.open { opacity: 1; pointer-events: auto; }
+  .mobile-menu a {
+    font-family: var(--font-serif); font-size: 2.8rem; color: var(--light);
+    text-decoration: none; transition: var(--transition-fast);
+    opacity: 0; transform: translateY(20px);
+  }
+  .mobile-menu.open a { opacity: 1; transform: translateY(0); }
+  .mobile-menu.open a:nth-child(1) { transition-delay: 0.1s; }
+  .mobile-menu.open a:nth-child(2) { transition-delay: 0.2s; }
+  .mobile-menu.open a:nth-child(3) { transition-delay: 0.3s; }
+  .mobile-menu.open a:nth-child(4) { transition-delay: 0.4s; }
+  .mobile-menu.open a:nth-child(5) { transition-delay: 0.5s; }
+  .mobile-menu.open a:nth-child(6) { transition-delay: 0.6s; }
+  .mobile-menu a:hover { color: var(--gold); font-style: italic; }
+
+  /* HERO */
+  .hero {
+    height: 100vh; min-height: 700px; background: var(--dark);
+    position: relative; display: flex; align-items: center; justify-content: center;
+    text-align: center; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; width: 100vw; height: 100vh;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 50%, rgba(197,160,89,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 30% 70%, rgba(197,160,89,0.03) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 40% at 70% 30%, rgba(197,160,89,0.04) 0%, transparent 50%);
+    z-index: 1; pointer-events: none;
+  }
+
+  .hero-particles { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+  .particle {
+    position: absolute; width: 2px; height: 2px; background: var(--gold);
+    border-radius: 50%; opacity: 0; animation: floatParticle linear infinite;
+  }
+  @keyframes floatParticle {
+    0% { opacity: 0; transform: translateY(0) scale(0); }
+    20% { opacity: 0.6; transform: scale(1); }
+    80% { opacity: 0.3; }
+    100% { opacity: 0; transform: translateY(-100vh) scale(0.5); }
+  }
+
+  .hero-content { position: relative; z-index: 2; padding: 0 2rem; max-width: 950px; }
+  .hero h1 {
+    font-size: clamp(3.2rem, 7.5vw, 6.5rem); color: var(--light);
+    margin-bottom: 1.8rem; letter-spacing: -0.02em; line-height: 1.05;
+  }
+  .hero h1 em { color: var(--gold); font-style: italic; font-weight: 300; }
+
+  .hero-subtitle {
+    color: rgba(250,249,246,0.55); font-size: clamp(0.88rem, 1.8vw, 1.05rem);
+    font-weight: 200; max-width: 560px; margin: 0 auto 3.5rem;
+    letter-spacing: 0.04em; line-height: 1.8;
+  }
+
+  .hero-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 2.5rem; }
+
+  .btn-outline-light { border-color: rgba(250,249,246,0.25); color: rgba(250,249,246,0.7); background: transparent; }
+  .btn-outline-light:hover { border-color: var(--light); color: var(--light); }
+
+  .scroll-indicator {
+    position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%); z-index: 2;
+    display: flex; flex-direction: column; align-items: center; gap: 1.2rem;
+    color: rgba(250,249,246,0.35); font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
+  }
+  .scroll-line { width: 1px; height: 50px; background: rgba(250,249,246,0.15); position: relative; overflow: hidden; }
+  .scroll-line::after {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 40%;
+    background: var(--gold); animation: scrollLine 2.2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  }
+  @keyframes scrollLine { 0% { transform: translateY(-100%); } 100% { transform: translateY(250%); } }
+
+  /* MARQUEE */
+  .marquee-strip { background: var(--dark-alt); padding: 1.2rem 0; overflow: hidden; border-bottom: 1px solid var(--border-dark); }
+  .marquee-content { display: flex; gap: 4rem; animation: marquee 30s linear infinite; white-space: nowrap; }
+  .marquee-content span { font-family: var(--font-sans); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.3em; color: rgba(250,249,246,0.3); }
+  .marquee-dot { color: var(--gold) !important; font-size: 0.5rem !important; }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  /* ABOUT */
+  .about-section { padding: 10rem 4rem; background: var(--light); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8rem;
+    align-items: center; max-width: var(--container); margin: 0 auto;
+  }
+  .about-visual { position: relative; height: 650px; display: flex; justify-content: center; align-items: center; }
+  .jewel-showcase { position: relative; width: 320px; height: 440px; }
+  .jewel-arch {
+    width: 100%; height: 100%; border: 1px solid rgba(197,160,89,0.4);
+    border-radius: 160px 160px 8px 8px; display: flex; justify-content: center; align-items: center;
+    background: var(--light-alt); position: relative; overflow: hidden;
+  }
+  .jewel-arch::before {
+    content: ''; position: absolute; inset: 20px;
+    border: 1px solid rgba(197,160,89,0.15); border-radius: 140px 140px 4px 4px;
+  }
+
+  .jewel-arch img {
+    width: 75%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 120px 120px 4px 4px;
+    animation: gentleFloat 6s ease-in-out infinite;
+  }
+
+  @keyframes gentleFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+  .orbit-ring {
+    position: absolute; border: 1px solid rgba(42,42,42,0.08);
+    border-radius: 50%; animation: slowSpin 40s linear infinite;
+  }
+  .orbit-ring-1 { width: 500px; height: 500px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+  .orbit-ring-2 { width: 400px; height: 400px; top: 50%; left: 50%; transform: translate(-50%, -50%); animation-direction: reverse; animation-duration: 30s; }
+  .orbit-dot { position: absolute; width: 4px; height: 4px; background: var(--gold); border-radius: 50%; }
+  .orbit-ring-1 .orbit-dot { top: 0; left: 50%; transform: translate(-50%, -50%); }
+  .orbit-ring-2 .orbit-dot { bottom: 0; right: 0; transform: translate(50%, 50%); }
+  @keyframes slowSpin { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+  .about-content h2 { font-size: clamp(2.5rem, 4vw, 3.8rem); margin-bottom: 2.5rem; line-height: 1.1; }
+  .about-content p { color: var(--text-muted); margin-bottom: 1.8rem; font-weight: 300; font-size: 1rem; line-height: 1.9; }
+
+  .values-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem;
+    margin-top: 3.5rem; padding-top: 3.5rem; border-top: 1px solid var(--border-light);
+  }
+  .value-item { text-align: left; }
+  .value-item h4 { font-size: 2.8rem; color: var(--gold); margin-bottom: 0.5rem; font-weight: 300; }
+  .value-item span { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); font-weight: 400; }
+
+  /* PHILOSOPHY */
+  .philosophy { background: var(--dark); padding: 7rem 4rem; text-align: center; }
+  .philosophy-inner { max-width: 900px; margin: 0 auto; }
+  .philosophy blockquote {
+    font-family: var(--font-serif); font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 300; font-style: italic; color: var(--light); line-height: 1.5; margin-bottom: 2rem;
+  }
+  .philosophy cite {
+    font-family: var(--font-sans); font-size: 0.68rem; text-transform: uppercase;
+    letter-spacing: 0.25em; color: var(--gold); font-style: normal;
+  }
+
+  /* COLLECTIONS */
+  .collections-section { background: var(--light-alt); padding: 10rem 4rem; }
+  .section-header { text-align: center; max-width: 650px; margin: 0 auto 6rem; }
+  .section-header h2 { font-size: clamp(2.5rem, 5vw, 3.8rem); color: var(--text-main); margin-bottom: 1.5rem; }
+  .section-header p { color: var(--text-muted); font-weight: 300; font-size: 1rem; line-height: 1.8; }
+
+  .collections-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; max-width: var(--container); margin: 0 auto; }
+  .collection-card { text-decoration: none; display: block; position: relative; }
+  .collection-arch {
+    background: var(--light); border-radius: 200px 200px 12px 12px; aspect-ratio: 2/2.8;
+    display: flex; align-items: center; justify-content: center; position: relative;
+    overflow: hidden; margin-bottom: 2rem; border: 1px solid var(--border-light);
+    transition: var(--transition-slow);
+  }
+  .collection-arch::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,0.08), transparent 50%);
+    opacity: 0; transition: var(--transition-fast);
+  }
+  .collection-arch::after {
+    content: 'Explore →'; position: absolute; bottom: 2rem; left: 50%;
+    transform: translateX(-50%) translateY(20px); font-family: var(--font-sans);
+    font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;
+    color: var(--gold); opacity: 0; transition: var(--transition-fast);
+  }
+  .collection-card:hover .collection-arch {
+    transform: translateY(-8px); box-shadow: 0 40px 80px rgba(0,0,0,0.06);
+    border-color: rgba(197,160,89,0.2);
+  }
+  .collection-card:hover .collection-arch::before { opacity: 1; }
+  .collection-card:hover .collection-arch::after { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  .collection-arch img {
+    width: 70%;
+    height: 75%;
+    object-fit: cover;
+    border-radius: 140px 140px 8px 8px;
+    transition: var(--transition-slow);
+  }
+  .collection-card:hover .collection-arch img { transform: scale(1.05) translateY(-5px); }
+
+  .collection-info { text-align: center; }
+  .collection-info h3 { font-size: 1.8rem; color: var(--text-main); margin-bottom: 0.5rem; }
+  .collection-info span { font-family: var(--font-sans); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.22em; color: var(--text-muted); }
+
+  /* SHOP */
+  .shop-section { background: var(--light); padding: 10rem 4rem; }
+  .shop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; max-width: var(--container); margin: 0 auto; }
+  .product-card { position: relative; cursor: pointer; text-decoration: none; color: inherit; display: block; }
+  .product-image-wrap {
+    background: var(--light-alt); aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem; position: relative; overflow: hidden;
+    border: 1px solid var(--border-light); transition: var(--transition-fast);
+  }
+  .product-card:hover .product-image-wrap { border-color: rgba(197,160,89,0.2); box-shadow: 0 15px 40px rgba(0,0,0,0.04); }
+
+  .product-badge {
+    position: absolute; top: 1rem; left: 1rem; background: var(--dark);
+    color: var(--gold); font-size: 0.58rem; text-transform: uppercase;
+    letter-spacing: 0.15em; padding: 0.4rem 0.8rem; z-index: 2;
+  }
+
+  .product-image-wrap img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    transition: var(--transition-slow);
+  }
+  .product-card:hover .product-image-wrap img { transform: scale(1.06) translateY(-6px); }
+
+  .product-quick-view {
+    position: absolute; bottom: 0; left: 0; width: 100%; padding: 1.1rem;
+    background: var(--dark); text-align: center; font-size: 0.65rem;
+    text-transform: uppercase; letter-spacing: 0.22em; color: var(--light);
+    transform: translateY(100%); transition: var(--transition-fast); z-index: 2;
+  }
+  .product-card:hover .product-quick-view { transform: translateY(0); }
+
+  .product-info { text-align: center; }
+  .product-category { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-subtle); margin-bottom: 0.4rem; display: block; }
+  .product-title { font-family: var(--font-serif); font-size: 1.35rem; color: var(--text-main); margin-bottom: 0.6rem; font-weight: 400; }
+  .product-price { font-family: var(--font-sans); font-size: 0.88rem; font-weight: 300; color: var(--text-muted); }
+
+  /* ATELIER */
+  .atelier-strip { padding: 10rem 4rem; background: var(--light-warm); }
+  .atelier-inner { max-width: var(--container); margin: 0 auto; }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3rem; margin-top: 5rem; }
+  .process-step { text-align: center; position: relative; }
+  .process-step::after {
+    content: ''; position: absolute; top: 2.5rem; right: -1.5rem;
+    width: calc(100% - 60px); height: 1px; background: var(--border-light);
+  }
+  .process-step:last-child::after { display: none; }
+  .step-number { font-family: var(--font-serif); font-size: 3rem; color: var(--gold); margin-bottom: 1.5rem; font-weight: 300; opacity: 0.5; }
+  .process-step h4 { font-size: 1.4rem; margin-bottom: 1rem; color: var(--text-main); }
+  .process-step p { font-size: 0.88rem; color: var(--text-muted); font-weight: 300; line-height: 1.8; }
+
+  /* TESTIMONIALS */
+  .testimonials-section {
+    background: var(--dark); padding: 10rem 4rem; position: relative; overflow: hidden;
+  }
+  .testimonials-section::before {
+    content: ''; position: absolute; width: 600px; height: 600px;
+    border: 1px solid rgba(197,160,89,0.05); border-radius: 50%;
+    top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;
+  }
+  .testimonials-section::after {
+    content: ''; position: absolute; width: 400px; height: 400px;
+    border: 1px solid rgba(197,160,89,0.03); border-radius: 50%;
+    top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;
+  }
+
+  .testimony-container { max-width: 800px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
+  .quote-icon { font-family: var(--font-serif); font-size: 7rem; color: rgba(197,160,89,0.15); line-height: 0; margin-bottom: 3rem; }
+  .testimony { display: none; animation: fadeSlow 0.8s ease forwards; }
+  .testimony.active { display: block; }
+  @keyframes fadeSlow { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+  .testimony p {
+    font-family: var(--font-serif); font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+    font-style: italic; font-weight: 300; line-height: 1.55; margin-bottom: 3rem;
+    color: rgba(250,249,246,0.88);
+  }
+  .testimony .author { font-family: var(--font-sans); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.25em; color: var(--gold); display: block; }
+  .testimony .author-title { font-size: 0.65rem; color: rgba(250,249,246,0.35); margin-top: 0.3rem; display: block; letter-spacing: 0.1em; }
+  .testimony-nav { display: flex; justify-content: center; align-items: center; gap: 2rem; margin-top: 4rem; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(250,249,246,0.15); cursor: pointer; transition: var(--transition-fast); border: none; padding: 0; }
+  .dot.active { background: var(--gold); transform: scale(1.6); }
+  .dot:hover { background: rgba(250,249,246,0.4); }
+  .dot.active:hover { background: var(--gold); }
+
+  /* CTA */
+  .cta-banner { background: var(--gold); padding: 6rem 4rem; text-align: center; position: relative; overflow: hidden; }
+  .cta-banner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,0.05) 0%, transparent 50%, rgba(0,0,0,0.05) 100%); }
+  .cta-banner h2 { font-size: clamp(2rem, 4vw, 3rem); color: var(--light); margin-bottom: 1.5rem; position: relative; }
+  .cta-banner p { color: rgba(250,249,246,0.8); font-weight: 300; max-width: 500px; margin: 0 auto 2.5rem; position: relative; }
+  .btn-white { background: var(--light); color: var(--dark); border-color: var(--light); position: relative; }
+  .btn-white:hover { background: var(--dark); color: var(--light); border-color: var(--dark); }
+
+  /* FOOTER */
+  footer { background: var(--dark-alt); color: var(--light); padding: 7rem 4rem 2.5rem; }
+  .footer-grid { display: grid; grid-template-columns: 2.5fr 1fr 1fr 1.5fr; gap: 4rem; max-width: var(--container); margin: 0 auto 5rem; }
+  .footer-brand .logo { font-size: 1.8rem; }
+  .footer-brand p { font-size: 0.9rem; color: rgba(250,249,246,0.45); margin-top: 1.5rem; max-width: 320px; font-weight: 200; line-height: 1.8; }
+  .footer-social { display: flex; gap: 1.5rem; margin-top: 2rem; }
+  .footer-social a { color: rgba(250,249,246,0.4); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.05em; transition: var(--transition-fast); }
+  .footer-social a:hover { color: var(--gold); }
+  .footer-title { font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 1.8rem; color: var(--light); font-weight: 400; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 0.9rem; }
+  .footer-links a { color: rgba(250,249,246,0.45); text-decoration: none; font-size: 0.85rem; font-weight: 300; transition: var(--transition-fast); position: relative; }
+  .footer-links a:hover { color: var(--gold); }
+  .newsletter-form { margin-top: 0; }
+  .newsletter-input {
+    width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(250,249,246,0.15);
+    padding: 0.9rem 0; color: var(--light); font-family: var(--font-sans); font-size: 0.85rem;
+    font-weight: 300; outline: none; transition: var(--transition-fast); margin-bottom: 1.2rem;
+  }
+  .newsletter-input:focus { border-color: var(--gold); }
+  .newsletter-input::placeholder { color: rgba(250,249,246,0.3); }
+  .newsletter-btn { background: none; border: none; color: var(--gold); font-family: var(--font-sans); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.22em; cursor: pointer; transition: var(--transition-fast); padding: 0; }
+  .newsletter-btn:hover { color: var(--light); }
+  .footer-bottom {
+    max-width: var(--container); margin: 0 auto; border-top: 1px solid rgba(250,249,246,0.06);
+    padding-top: 2.5rem; display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.72rem; color: rgba(250,249,246,0.3); font-weight: 200;
+  }
+  .footer-legal { display: flex; gap: 2rem; }
+  .footer-legal a { color: rgba(250,249,246,0.3); text-decoration: none; transition: var(--transition-fast); }
+  .footer-legal a:hover { color: var(--gold); }
+
+  /* PAGE LOADER */
+  .page-loader {
+    position: fixed; inset: 0; background: var(--dark); z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+  }
+  .page-loader.loaded { opacity: 0; visibility: hidden; }
+  .loader-logo {
+    font-family: var(--font-serif); font-size: 2rem; color: var(--light);
+    letter-spacing: 0.1em; text-transform: uppercase; animation: pulse 1.5s ease-in-out infinite;
+  }
+  .loader-logo span { color: var(--gold); font-style: italic; text-transform: lowercase; }
+  @keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+  /* RESPONSIVE */
+  @media (max-width: 1200px) {
+    .shop-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+    .process-step::after { display: none; }
+  }
+  @media (max-width: 1024px) {
+    .container { padding: 0 2rem; }
+    section, .about-section, .collections-section, .shop-section,
+    .atelier-strip, .testimonials-section { padding-left: 2rem; padding-right: 2rem; }
+    .about-grid { gap: 4rem; }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 0 2rem; }
+    nav.scrolled { padding: 0 2rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-visual { height: 400px; order: -1; }
+    .collections-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
+    .shop-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: clamp(2.8rem, 10vw, 4rem); }
+    .hero-buttons { flex-direction: column; align-items: center; }
+  }
+  @media (max-width: 480px) {
+    .shop-grid { grid-template-columns: 1fr; max-width: 350px; margin-left: auto; margin-right: auto; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .values-row { grid-template-columns: 1fr; text-align: center; }
+    .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    .footer-legal { justify-content: center; }
+    .process-steps { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-logo">Viara<span>.</span></div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <a href="index.html" class="logo">Viara<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">Maison</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="boutique.html">Boutique</a></li>
+      <li><a href="bespoke.html">Bespoke</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><div></div><div></div></div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">Maison</a>
+    <a href="collections.html">Collections</a>
+    <a href="boutique.html">Boutique</a>
+    <a href="bespoke.html">Bespoke</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <span class="overline reveal">Haute Joaillerie — Est. MMXII</span>
+      <h1 class="reveal d1">Elegance That<br><em>Endures</em> Time</h1>
+      <p class="hero-subtitle reveal d2">Where rare gemstones meet visionary design. Each creation is a testament to centuries of artisan tradition and the pursuit of absolute perfection.</p>
+      <div class="hero-buttons reveal d3">
+        <a href="collections.html" class="btn btn-outline">Explore Collections</a>
+        <a href="bespoke.html" class="btn btn-outline-light">Bespoke Services</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Discover</span>
+      <div class="scroll-line"></div>
+    </div>
+  </header>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-content" id="marquee">
+      <span>Ethically Sourced</span><span class="marquee-dot">◆</span>
+      <span>Handcrafted in Europe</span><span class="marquee-dot">◆</span>
+      <span>18k Solid Gold</span><span class="marquee-dot">◆</span>
+      <span>Lifetime Warranty</span><span class="marquee-dot">◆</span>
+      <span>VVS Diamonds</span><span class="marquee-dot">◆</span>
+      <span>Complimentary Engraving</span><span class="marquee-dot">◆</span>
+      <span>Ethically Sourced</span><span class="marquee-dot">◆</span>
+      <span>Handcrafted in Europe</span><span class="marquee-dot">◆</span>
+      <span>18k Solid Gold</span><span class="marquee-dot">◆</span>
+      <span>Lifetime Warranty</span><span class="marquee-dot">◆</span>
+      <span>VVS Diamonds</span><span class="marquee-dot">◆</span>
+      <span>Complimentary Engraving</span><span class="marquee-dot">◆</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="about-grid">
+      <div class="about-content">
+        <span class="overline overline-line reveal">The Maison</span>
+        <h2 class="reveal d1">A Legacy of<br>Meticulous Artistry</h2>
+        <p class="reveal d2">Founded on the principles of exceptional craftsmanship and ethical sourcing, Viara Studios redefines modern luxury. Every contour is deliberated, every gemstone hand-selected from the world's most esteemed mines.</p>
+        <p class="reveal d3">Our master goldsmiths blend centuries-old techniques with avant-garde aesthetics, creating pieces that transcend trends and become cherished heirlooms passed through generations.</p>
+        <a href="about.html" class="btn-text reveal d4">Discover Our Story</a>
+        <div class="values-row reveal d5">
+          <div class="value-item">
+            <h4>18k</h4>
+            <span>Solid Gold Standard</span>
+          </div>
+          <div class="value-item">
+            <h4>VVS</h4>
+            <span>Diamond Clarity</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual reveal-right d2">
+        <div class="jewel-showcase">
+          <div class="orbit-ring orbit-ring-1"><div class="orbit-dot"></div></div>
+          <div class="orbit-ring orbit-ring-2"><div class="orbit-dot"></div></div>
+          <div class="jewel-arch">
+            <img src="assets/pendent.jpg" alt="Viara Signature Pendant">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="philosophy">
+    <div class="philosophy-inner reveal">
+      <span class="overline" style="color: rgba(197,160,89,0.5);">Our Belief</span>
+      <blockquote>"True luxury is not merely possessed — it is felt, remembered, and ultimately inherited."</blockquote>
+      <cite>— Viara Studios, Founding Principle</cite>
+    </div>
+  </section>
+
+  <!-- COLLECTIONS -->
+  <section class="collections-section" id="collections">
+    <div class="section-header">
+      <span class="overline reveal">Curated Works</span>
+      <h2 class="reveal d1">Signature Collections</h2>
+      <p class="reveal d2">Inspired by the symmetry of nature and the geometry of the world's most storied architectural wonders.</p>
+    </div>
+    <div class="collections-grid">
+      <a href="collections.html" class="collection-card reveal">
+        <div class="collection-arch">
+          <img src="assets/matching-pendent.jpg" alt="Aura Minimal Collection">
+        </div>
+        <div class="collection-info">
+          <h3>Aura Minimal</h3>
+          <span>Everyday Elegance</span>
+        </div>
+      </a>
+      <a href="collections.html" class="collection-card reveal d1">
+        <div class="collection-arch">
+          <img src="assets/trident-pendent.jpg" alt="Royal Pavilion Collection">
+        </div>
+        <div class="collection-info">
+          <h3>Royal Pavilion</h3>
+          <span>High Jewellery</span>
+        </div>
+      </a>
+      <a href="collections.html" class="collection-card reveal d2">
+        <div class="collection-arch">
+          <img src="assets/earrings.jpg" alt="Nocturne Collection">
+        </div>
+        <div class="collection-info">
+          <h3>Nocturne</h3>
+          <span>Evening Statements</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section class="shop-section" id="shop">
+    <div class="section-header">
+      <span class="overline reveal">The Boutique</span>
+      <h2 class="reveal d1">Exceptional Pieces</h2>
+      <p class="reveal d2">Each creation undergoes over 200 hours of meticulous handwork before earning the Viara hallmark.</p>
+    </div>
+    <div class="shop-grid">
+      <a href="product.html" class="product-card reveal">
+        <div class="product-image-wrap">
+          <span class="product-badge">New</span>
+          <img src="assets/matching-pendent.jpg" alt="Solitaire Été">
+          <div class="product-quick-view">View Details</div>
+        </div>
+        <div class="product-info">
+          <span class="product-category">Pendants</span>
+          <h3 class="product-title">Cœur Éternel Duo</h3>
+          <span class="product-price">$4,200</span>
+        </div>
+      </a>
+      <a href="product.html" class="product-card reveal d1">
+        <div class="product-image-wrap">
+          <img src="assets/trident-pendent.jpg" alt="Lumière Pendant">
+          <div class="product-quick-view">View Details</div>
+        </div>
+        <div class="product-info">
+          <span class="product-category">Necklaces</span>
+          <h3 class="product-title">Croix Flamme</h3>
+          <span class="product-price">$2,850</span>
+        </div>
+      </a>
+      <a href="product.html" class="product-card reveal d2">
+        <div class="product-image-wrap">
+          <img src="assets/earrings.jpg" alt="Cascade Drops">
+          <div class="product-quick-view">View Details</div>
+        </div>
+        <div class="product-info">
+          <span class="product-category">Earrings</span>
+          <h3 class="product-title">Lame Dorée Drops</h3>
+          <span class="product-price">$5,100</span>
+        </div>
+      </a>
+      <a href="product.html" class="product-card reveal d3">
+        <div class="product-image-wrap">
+          <span class="product-badge">Signature</span>
+          <img src="assets/pendent.jpg" alt="Celestial Star Pendant">
+          <div class="product-quick-view">View Details</div>
+        </div>
+        <div class="product-info">
+          <span class="product-category">Pendants</span>
+          <h3 class="product-title">Étoile Céleste</h3>
+          <span class="product-price">$8,900</span>
+        </div>
+      </a>
+    </div>
+    <div class="reveal d4" style="text-align: center; margin-top: 5rem;">
+      <a href="collections.html" class="btn btn-outline-dark">View Complete Catalogue</a>
+    </div>
+  </section>
+
+  <!-- ATELIER / PROCESS -->
+  <section class="atelier-strip">
+    <div class="atelier-inner">
+      <div class="section-header">
+        <span class="overline reveal">Savoir-Faire</span>
+        <h2 class="reveal d1">The Art of Creation</h2>
+        <p class="reveal d2">From initial sketch to final polish, every piece traverses a journey of uncompromising precision.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="step-number">01</div>
+          <h4>Conception</h4>
+          <p>Hand-drawn sketches capture the vision. Our designers study proportion, light, and movement to perfect every angle.</p>
+        </div>
+        <div class="process-step reveal d1">
+          <div class="step-number">02</div>
+          <h4>Stone Selection</h4>
+          <p>Each gemstone is individually chosen. We evaluate cut, clarity, colour, and character from ethically certified sources.</p>
+        </div>
+        <div class="process-step reveal d2">
+          <div class="step-number">03</div>
+          <h4>Master Setting</h4>
+          <p>Our artisans employ centuries-old techniques — pavé, bezel, and prong — to secure each stone with flawless precision.</p>
+        </div>
+        <div class="process-step reveal d3">
+          <div class="step-number">04</div>
+          <h4>Final Polish</h4>
+          <p>Every surface is hand-finished to achieve a mirror-like brilliance before receiving the Viara hallmark of quality.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section">
+    <div class="testimony-container reveal">
+      <div class="quote-icon">"</div>
+      <div class="testimony active">
+        <p>The craftsmanship is unparalleled. My bespoke engagement ring from Viara possesses a soul and elegance that photographs simply cannot capture.</p>
+        <span class="author">Eleanor V.</span>
+        <span class="author-title">Paris, France</span>
+      </div>
+      <div class="testimony">
+        <p>Wearing a piece from Viara feels like wearing history. The attention to detail in the Nocturne collection is nothing short of breathtaking.</p>
+        <span class="author">Sophia M.</span>
+        <span class="author-title">New York, USA</span>
+      </div>
+      <div class="testimony">
+        <p>Impeccable service and extraordinary artistry. They understood my vision and translated it into a flawless reality I'll treasure forever.</p>
+        <span class="author">Isabella R.</span>
+        <span class="author-title">Milan, Italy</span>
+      </div>
+      <div class="testimony-nav">
+        <button class="dot active" onclick="setTestimony(0)" aria-label="Testimonial 1"></button>
+        <button class="dot" onclick="setTestimony(1)" aria-label="Testimonial 2"></button>
+        <button class="dot" onclick="setTestimony(2)" aria-label="Testimonial 3"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <h2 class="reveal">Begin Your Story</h2>
+    <p class="reveal d1">Book a private consultation to design a piece as singular as the moment it commemorates.</p>
+    <a href="bespoke.html" class="btn btn-white reveal d2">Request a Consultation</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Viara<span>.</span></a>
+        <p>Redefining haute joaillerie through ethical sourcing, masterful craftsmanship, and timeless design sensibility.</p>
+        <div class="footer-social">
+          <a href="#">Instagram</a>
+          <a href="#">Pinterest</a>
+          <a href="#">LinkedIn</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-title">Maison</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="about.html#craftsmanship">Savoir-Faire</a></li>
+          <li><a href="about.html#sustainability">Sustainability</a></li>
+          <li><a href="bespoke.html">Bespoke Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Client Care</h4>
+        <ul class="footer-links">
+          <li><a href="contact.html">Contact Concierge</a></li>
+          <li><a href="#">Ring Sizer</a></li>
+          <li><a href="#">Care & Repair</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Private Journal</h4>
+        <p style="color: rgba(250,249,246,0.4); font-size: 0.85rem; margin-bottom: 1.2rem; font-weight: 300; line-height: 1.7;">Subscribe for exclusive previews, private events, and first access to new collections.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('input').value = ''; this.querySelector('input').placeholder = 'Thank you';">
+          <input type="email" placeholder="Your Email Address" class="newsletter-input" required>
+          <button type="submit" class="newsletter-btn">Subscribe →</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Viara Studios. All Rights Reserved.</span>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Page Loader
+    window.addEventListener('load', () => {
+      setTimeout(() => { document.getElementById('pageLoader').classList.add('loaded'); }, 600);
+    });
+
+    // Navbar
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+
+    // Mobile Menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = '';
+    }));
+
+    // Scroll Reveal
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // Testimonials
+    let currentTestimony = 0;
+    const testimonies = document.querySelectorAll('.testimony');
+    const dots = document.querySelectorAll('.dot');
+    let autoPlay;
+    function setTestimony(i) {
+      testimonies.forEach(t => t.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      testimonies[i].classList.add('active'); dots[i].classList.add('active');
+      currentTestimony = i; resetAutoPlay();
+    }
+    function resetAutoPlay() {
+      clearInterval(autoPlay);
+      autoPlay = setInterval(() => { setTestimony((currentTestimony + 1) % testimonies.length); }, 7000);
+    }
+    resetAutoPlay();
+
+    // Hero Particles
+    const particleContainer = document.getElementById('particles');
+    for (let i = 0; i < 20; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.top = (60 + Math.random() * 40) + '%';
+      p.style.animationDuration = (8 + Math.random() * 12) + 's';
+      p.style.animationDelay = Math.random() * 10 + 's';
+      p.style.width = (1 + Math.random() * 2) + 'px';
+      p.style.height = p.style.width;
+      particleContainer.appendChild(p);
+    }
+  </script>
+</body>
+</html>
